@@ -16,7 +16,10 @@
   "dependencies": {
     "@middy/core": "^2.5.3",
     "@middy/http-json-body-parser": "^2.5.3",
-    "handlebars": "^4.7.7"
+    "chrome-aws-lambda": "^10.1.0",
+    "dayjs": "^1.11.5",
+    "handlebars": "^4.7.7",
+    "puppeteer-core": "^12.0.1"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.0.0",
@@ -24,6 +27,7 @@
     "@types/node": "^14.14.25",
     "esbuild": "^0.14.11",
     "json-schema-to-ts": "^1.5.0",
+    "puppeteer": "^12.0.1",
     "serverless": "^3.0.0",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-esbuild": "^1.23.3",

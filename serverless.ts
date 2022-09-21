@@ -1,4 +1,4 @@
-import type {AWS} from '@serverless/typescript';
+import type { AWS } from '@serverless/typescript';
 
 const serverlessConfiguration: AWS = {
   service: 'certificateignite',
@@ -26,6 +26,11 @@ const serverlessConfiguration: AWS = {
         Action: ['dynamodb:*'],
         Resource: ['*'],
       },
+      {
+        Effect: 'Allow',
+        Action: ['s3'],
+        Resource: ['*'],
+      },
     ],
   },
   // import the function via paths
@@ -43,7 +48,7 @@ const serverlessConfiguration: AWS = {
       ],
     },
   },
-  package: {individually: true},
+  package: { individually: true },
   custom: {
     esbuild: {
       bundle: true,
@@ -51,9 +56,10 @@ const serverlessConfiguration: AWS = {
       sourcemap: true,
       exclude: ['aws-sdk'],
       target: 'node14',
-      define: {'require.resolve': undefined},
+      define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
+      external: ['chrome-aws-lambda'],
     },
     dynamodb: {
       stages: ['dev', 'local'],
