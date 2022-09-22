@@ -18,7 +18,7 @@ O projeto tem como responsabilidade gerar um certificado para um usuário e a po
 
 ### Para rodar localmente
 
-- Rode `npm` para instalar as dependências
+- Rode `npm i` para instalar as dependências
 - Rode `npm run dynamodb:install` para baixar o DynamoDB localmente
 - Rode `npm run dynamo:start` para iniciar o banco de dados em ambiente local
 - Rode, em outro terminal, o `npm run dev` para iniciar a aplicação em ambiente local
