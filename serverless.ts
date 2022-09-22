@@ -35,13 +35,25 @@ const serverlessConfiguration: AWS = {
   },
   // import the function via paths
   functions: {
-    generateCertificates: {
+    generateCertificate: {
       handler: 'src/functions/generateCertificate.handler',
       events: [
         {
           http: {
-            path: 'generateCertificates',
+            path: 'generateCertificate',
             method: 'post',
+            cors: true,
+          },
+        },
+      ],
+    },
+    verifyCertificate: {
+      handler: 'src/functions/verifyCertificate.handler',
+      events: [
+        {
+          http: {
+            path: 'verifyCertificate/{id}',
+            method: 'get',
             cors: true,
           },
         },
