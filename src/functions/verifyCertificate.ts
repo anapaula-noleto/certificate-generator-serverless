@@ -1,10 +1,11 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
-import { document } from '@utils/dynamodbClient';
+import { document } from '../utils/dynamodbClient';
 
 interface IUserCertificate {
-  name: string;
   id: string;
-  created_at: Date;
+  name: string;
+  created_at: string;
+  grade: string;
 }
 
 export const handler: APIGatewayProxyHandler = async (event) => {

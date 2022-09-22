@@ -28,11 +28,13 @@ const serverlessConfiguration: AWS = {
       },
       {
         Effect: 'Allow',
-        Action: ['s3'],
+        Action: ['s3:*'],
         Resource: ['*'],
       },
     ],
   },
+
+  package: { individually: false, include: ['./src/templates/**'] },
   // import the function via paths
   functions: {
     generateCertificate: {
@@ -52,7 +54,7 @@ const serverlessConfiguration: AWS = {
       events: [
         {
           http: {
-            path: 'verifyCertificate/{id}',
+            path: 'verifyCertificates/{id}',
             method: 'get',
             cors: true,
           },
@@ -60,7 +62,6 @@ const serverlessConfiguration: AWS = {
       ],
     },
   },
-  package: { individually: true },
   custom: {
     esbuild: {
       bundle: true,
